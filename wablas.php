@@ -2,13 +2,11 @@
 //wablas API class, unofficial WA Blas Class
 //https://pati.wablas.com/documentation
 
-$servername = "https://pati.wablas.com";
-
 class wablas{
-
     private $token;
     public function __construct() {
-        $this->token = "";
+        $this->token = "YOURTOKENHERE";
+        $this->servername = "https://pati.wablas.com";
     }
 
     function sendmessagewa($phone,$message)
@@ -30,7 +28,7 @@ class wablas{
         curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));
-        curl_setopt($curl, CURLOPT_URL, $servername."/api/send-message");
+        curl_setopt($curl, CURLOPT_URL, $this->servername."/api/send-message");
         curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
 
